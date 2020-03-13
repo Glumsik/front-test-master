@@ -1,6 +1,5 @@
 import jQuery from "jQuery";
 import "../scss/styles.scss";
-// import customSelect from "custom-select";
 
 (function($) {
     "use strict";
@@ -33,12 +32,6 @@ import "../scss/styles.scss";
             }
             $selectHeaders.addClass("hide-desktop hide-tablet");
 
-            // $(document).ready(function() {
-            //     $(".chosen").chosen();
-            // });
-            // console.log($selectHeaders[0]);
-            // customSelect('select');
-
             $wrapHeaders.addClass("hide-mobile");
             $tabHeaders
                 .removeClass("active")
@@ -54,7 +47,7 @@ import "../scss/styles.scss";
          * Инициализаиця
          */
         var init = function() {
-            selectTab(2, true);
+            selectTab(0, true);
 
             // Обработка событий
             $tabHeaders.on("click", function() {
@@ -92,7 +85,7 @@ import "../scss/styles.scss";
             curYPos = 0,
             curXPos = 0;
 
-        $(".container").mousemove(function(event) {
+        $(".container1").mousemove(function(event) {
             if (curDown) {
                 var a =
                     getXDirection(event.pageX) *
@@ -102,7 +95,7 @@ import "../scss/styles.scss";
                     getYDirection(event.pageY) *
                     Math.abs(curYPos - event.pageY) *
                     0.03;
-                $(".container")[0].scrollBy(a, b);
+                $(".container1")[0].scrollBy(a, b);
             }
         });
 
@@ -132,7 +125,7 @@ import "../scss/styles.scss";
             }
         }
 
-        $(".container").mousedown(function(event) {
+        $(".container1").mousedown(function(event) {
             event.stopPropagation();
             event.preventDefault();
             curYPos = event.pageY;
@@ -140,11 +133,11 @@ import "../scss/styles.scss";
             curDown = true;
         });
 
-        $(".container").mouseleave(function(event) {
+        $(".container1").mouseleave(function(event) {
             curDown = false;
         });
 
-        $(".container").mouseup(function() {
+        $(".container1").mouseup(function() {
             curDown = false;
         });
     }
